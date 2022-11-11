@@ -15,7 +15,7 @@
   
 	</select>
   <br>
-  <!--Next 3 lines create a radio button which we can use to select the user role-->
+
   <input type="radio" name="role" value="Pupil" checked> Pupil<br>
   
   <input type="radio" name="role" value="Admin"> Admin<br>
