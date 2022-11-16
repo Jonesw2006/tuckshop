@@ -12,7 +12,7 @@ Surname VARCHAR(20) NOT NULL,
 Forename VARCHAR(20) NOT NULL,
 Password VARCHAR(20) NOT NULL,
 Wallet DECIMAL(20) NOT NULL,
-Total DECIMAl(20) NOT NULL,
+
 Role TINYINT(1))");
 $stmt->execute();
 $stmt->closeCursor();

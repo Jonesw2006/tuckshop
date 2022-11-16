@@ -6,10 +6,10 @@
     
 </head>
 <body>
-<form action="addusers.php" method = "post">
-  First name:<input type="text" name="forename"><br>
-  Last name:<input type="text" name="surname"><br>
-  Password:<input type="password" name="password"><br>
+<form action="addpupils.php" method = "post">
+  First name:<input type="text" name="Forename"><br>
+  Last name:<input type="text" name="Surname"><br>
+  Password:<input type="password" name="Password"><br>
   Balance:<input type="decimal" name="Wallet"><br>
   
   
@@ -28,7 +28,7 @@ $stmt->execute();
 echo("<br>"."<br>");
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 {
-echo($row["Forename"].' '.$row["Surname"]."<br>");
+echo($row["Forename"].' '.$row["Surname"].' £'.$row["Wallet"]."<br>");
 }
 ?>
 </body>
