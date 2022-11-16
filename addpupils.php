@@ -17,7 +17,7 @@ $stmt = $conn->prepare("INSERT INTO TblPupils (UserID,Surname,Forename,Password,
 $stmt->bindParam(':forename', $_POST["forename"]);
 $stmt->bindParam(':surname', $_POST["surname"]);
 
-
+                                         
 $stmt->bindParam(':password', $_POST["password"]);
 
 $stmt->bindParam(':role', $role);
