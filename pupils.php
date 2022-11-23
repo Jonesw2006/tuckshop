@@ -7,6 +7,7 @@
 </head>
 <body>
 <form action="addpupils.php" method = "post">
+  Username:<input type="text" name="Username"><br>
   First name:<input type="text" name="Forename"><br>
   Last name:<input type="text" name="Surname"><br>
   Password:<input type="password" name="Password"><br>

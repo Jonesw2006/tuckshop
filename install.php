@@ -7,7 +7,7 @@ include_once("connection.php");
 $stmt = $conn->prepare("DROP TABLE IF EXISTS TblPupils;
 CREATE TABLE TblPupils 
 (UserID INT(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-
+Username VARCHAR(20) NOT NULL,
 Surname VARCHAR(20) NOT NULL,
 Forename VARCHAR(20) NOT NULL,
 Password VARCHAR(20) NOT NULL,

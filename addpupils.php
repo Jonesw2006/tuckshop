@@ -12,14 +12,16 @@ switch($_POST["role"]){
 		break;
 	}
 print_r($_POST);
-$stmt = $conn->prepare("INSERT INTO TblPupils (UserID,Surname,Forename,Password,Wallet ,Role)VALUES (null,:surname,:forename,:password,:wallet,:role)");
+$hashed_password = password_hash($_POST["Password"], PASSWORD_DEFAULT);
+$stmt = $conn->prepare("INSERT INTO TblPupils (UserID,Username,Surname,Forename,Password,Wallet ,Role)VALUES (null,:username,:surname,:forename,:password,:wallet,:role)");
 
 $stmt->bindParam(':forename', $_POST["Forename"]);
 $stmt->bindParam(':surname', $_POST["Surname"]);
 $stmt->bindParam(':wallet', $_POST["Wallet"]);
+$stmt->bindParam(':username', $_POST["Username"]);
 
                                          
-$stmt->bindParam(':password', $_POST["Password"]);
+$stmt->bindParam(':password', $hashed_password);
 
 $stmt->bindParam(':role', $role);
 $stmt->execute();
