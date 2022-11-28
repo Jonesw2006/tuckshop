@@ -10,17 +10,13 @@ CREATE TABLE TblPupils
 Username VARCHAR(20) NOT NULL,
 Surname VARCHAR(20) NOT NULL,
 Forename VARCHAR(20) NOT NULL,
-Password VARCHAR(20) NOT NULL,
+Password VARCHAR(200) NOT NULL,
 Wallet DECIMAL(20) NOT NULL,
 
 Role TINYINT(1))");
 $stmt->execute();
 $stmt->closeCursor();
-?>
 
-<?php
-
-include_once("connection.php");
 $stmt = $conn->prepare("DROP TABLE IF EXISTS TblOrders;
 
 CREATE TABLE TblOrders
@@ -32,11 +28,7 @@ Declined BOOL NOT NULL,
 Cancelled BOOL NOT NULL)");
 $stmt->execute();
 $stmt->closeCursor();
-?>
 
-<?php
-
-include_once("connection.php");
 $stmt = $conn->prepare("DROP TABLE IF EXISTS TblBasket;
 CREATE TABLE TblBasket
 (OrderID INT(4) NOT NULL,
@@ -45,11 +37,7 @@ Quantity INT(2) NOT NULL,
 PRIMARY KEY(OrderID,TuckID))");
 $stmt->execute();
 $stmt->closeCursor();
-?>
 
-<?php
-
-include_once("connection.php");
 $stmt = $conn->prepare("DROP TABLE IF EXISTS TblTuck;
 CREATE TABLE TblTuck
 (TuckID INT(4) PRIMARY KEY,

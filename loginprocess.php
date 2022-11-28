@@ -3,7 +3,7 @@ session_start();
 include_once ("connection.php");
 array_map("htmlspecialchars", $_POST);
 print_r($_POST);
-$stmt = $conn->prepare("SELECT * FROM tblpupils WHERE username =:username;" );
+$stmt = $conn->prepare("SELECT * FROM tblpupils WHERE username =:username ;" );
 $stmt->bindParam(':username', $_POST['Username']);
 $stmt->execute();
 if ($stmt->rowCount() > 0) {
@@ -11,7 +11,7 @@ if ($stmt->rowCount() > 0) {
 { 
     echo("sfdg");
     $hashed= $row['Password'];
-    $attempt= $_POST['Password'];
+    $attempt= $_POST['Pword'];
     if(password_verify($attempt,$hashed)){
         echo("yay");
         $_SESSION['loggedinID']=$row["UserID"];
@@ -26,12 +26,23 @@ if ($stmt->rowCount() > 0) {
         
         
     }else{
+        echo"no";
         header('Location: login.php');
     }
 }
   } else {
+    echo"nope";
     header('Location: login.php');
   }
 
 $conn=null;
+?>
+
+<?php
+session_start();
+if (!isset($_SESSION['loggedinID']))
+{
+    $_SESSION['backURL'] = $_SERVER['REQUESTURI']
+    header("Location:login.php");
+}
 ?>

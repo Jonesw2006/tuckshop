@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['loggedinID']))
+{
+    $_SESSION['backURL'] = $_SERVER['REQUESTURI']
+    header("Location:login.php");
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,5 +32,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 echo($row["Tuckname"].' '.$row["Tuckdescription"].' £'.$row["Price"].' '.$row["Quantity"]"<br>");
 }
 ?>
+
+<a href="logout.php">Logout</a>
 </body>
 </html>
