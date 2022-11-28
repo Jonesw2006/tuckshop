@@ -6,3 +6,4 @@ if(isset($_SESSION['loggedinID']))
     
 }
 header("Location: login.php")
+?>
