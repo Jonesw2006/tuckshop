@@ -15,6 +15,7 @@ if ($stmt->rowCount() > 0) {
     if(password_verify($attempt,$hashed)){
         echo("yay");
         $_SESSION['loggedinID']=$row["UserID"];
+        $_SESSION['Role']=$row["Role"]
         if (!isset($_SESSION['backURL'])){
             $backURL= "menu.php";
         }else{
@@ -38,11 +39,3 @@ if ($stmt->rowCount() > 0) {
 $conn=null;
 ?>
 
-<?php
-session_start();
-if (!isset($_SESSION['loggedinID']))
-{
-    $_SESSION['backURL'] = $_SERVER['REQUESTURI']
-    header("Location:login.php");
-}
-?>
