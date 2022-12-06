@@ -1,8 +1,6 @@
 <?php
 session_start();
 
-//$_SESSION["tuck"]=array();
-
 
 
 if (!isset($_SESSION["tuck"])){
