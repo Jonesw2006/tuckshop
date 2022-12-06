@@ -24,8 +24,8 @@
         
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
             {
-                echo("<td>".$row["Tuckname"]."</td><td> ".$tuck["qty"]." </td><td>- £".number_format(($tuck["qty"]*$row["Price"]),2)."</td></tr>");
-                $total=$total+($tuck["qty"]*$row["Price"]);
+                echo("<td>".$row["Name"]."</td><td> ".$tuck["qty"]." </td><td>- £".number_format(($tuck["qty"]*$row["Cost"]),2)."</td></tr>");
+                $total=$total+($tuck["qty"]*$row["Cost"]);
             }
     }
     //could do some colouring here to indicate if over balance...

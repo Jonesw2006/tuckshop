@@ -35,7 +35,7 @@ if (isset($_SESSION["tuck"])){
 	while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 		{
 			echo'<form action="addtobasket.php" method="post">';
-			echo($row["Name"].' '.$row["Cost"].' '.$row["Quantity"]."<input type='number' name='qty' min='1' max='5' value='1'>
+			echo($row["Name"].' '.$row["Cost"].' '.$row["Quantity"]."<input type='number' name='qty' min='0' max='5' value='1'>
 			<input type='submit' value='Add Tuck'><input type='hidden' name='TuckId' value=".$row['TuckID']."><br></form>");
 		}
 ?>   

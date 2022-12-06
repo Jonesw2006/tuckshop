@@ -26,7 +26,7 @@ catch(PDOException $e)
  
 //process array and create basket entries
 
-foreach ($_SESSION["tuck"] as $entry){//& allows us to change
+foreach ($_SESSION["tuck"] as &$entry){//& allows us to change
     $stmt = $conn->prepare("INSERT INTO Tblbasket(OrderID,TuckID,Quantity)VALUES (:orderid,:tuckid,:quantity)");
 	$stmt->bindParam(':orderid', $last);
     $stmt->bindParam(':tuckid', $entry["tuck"]);
@@ -44,7 +44,7 @@ foreach ($_SESSION["tuck"] as $entry){//& allows us to change
 }
 //update balance of logged in user - NOTE ALLOWING NEGATIVE BALANCES CURRENTLY
 
-    $stmt = $conn->prepare("UPDATE TblUser SET Balance=Balance-:newbalance WHERE UserID=:userid");
+    $stmt = $conn->prepare("UPDATE TblPupils SET Wallet=Wallet-:newbalance WHERE UserID=:userid");
 	$stmt->bindParam(':userid', $_SESSION["loggedinID"]);
 	$stmt->bindParam(':newbalance', $_SESSION["totalcost"]);
 	$stmt->execute();

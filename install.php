@@ -21,7 +21,7 @@ $stmt = $conn->prepare("DROP TABLE IF EXISTS TblOrders;
 
 CREATE TABLE TblOrders
 (OrderID INT(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-ProductID INT(4) NOT NULL,
+UserID INT(4) NOT NULL,
 Date DATE NOT NULL,
 Proccessed BOOL NOT NULL,
 Declined BOOL NOT NULL,

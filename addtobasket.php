@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$_SESSION["tuck"]=array();
+//$_SESSION["tuck"]=array();
 
 
 
@@ -25,5 +25,6 @@ foreach ($_SESSION["tuck"] as &$entry){
 if ($found===FALSE){
     array_push($_SESSION["tuck"],array("tuck"=>$_POST["TuckId"],"qty"=>$_POST["qty"]));
 }
+print_r($_SESSION);
 header('Location: buystuff.php')
 ?>
